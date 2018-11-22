@@ -6,6 +6,8 @@ import { IFrameLoader,
          Rendition,
          SpreadMode } from '@evidentpoint/r2-navigator-web';
 
+import { UIEnhancerInjector } from "./uiEnhancerInjector";
+
 export interface IReadiumNGViewProps {
   viewportWidth: number;
   viewportHeight: number;
@@ -75,6 +77,13 @@ export class ReadiumNGView extends React.Component<IReadiumNGViewProps, {}> {
 
     const loader = new IFrameLoader(this.publication.getBaseURI());
     loader.setReadiumCssBasePath(`${ASSETS_URL}/readium-css`);
+
+    // Injectors the needed UIEnhancer into each iFrame as it's loaded
+    const injector = new UIEnhancerInjector();
+
+    loader.addIFrameLoadedListener(function (loader: IFrameLoader) {
+        const uiInjector = injector.injectEnhancers();
+    });
 
     const cvf = new ContentViewFactory(loader);
     // const cvf = new ContentViewFactory(this.publication);
