@@ -1,5 +1,6 @@
 const path = require("path");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: "development",
@@ -38,5 +39,10 @@ module.exports = {
     // new UglifyJSPlugin({
     //   sourceMap: true
     // })
+    // Copy Infusion files
+    new CopyWebpackPlugin([
+        { from: '**', to: 'assets/infusion/dist/', context: './node_modules/infusion/dist/'},
+        { from: '**', to: 'assets/infusion/preferences/', context: './node_modules/infusion/src/framework/preferences/'}
+    ])
   ]
 };

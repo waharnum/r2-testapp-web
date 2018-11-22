@@ -5,3 +5,4 @@ build_test_temp
 dist
 public/bundle.js
 public/bundle.js.map
+public/assets/infusion/preferences

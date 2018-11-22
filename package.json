@@ -19,7 +19,8 @@
     "promise-polyfill": "^8.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "infusion": " 3.0.0-dev.20181120T213100Z.8ef92ceac.FLUID-6240"
   },
   "devDependencies": {
     "@types/react": "^16.0.36",
@@ -39,6 +40,7 @@
     "uglifyjs-webpack-plugin": "^1.1.8",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "copy-webpack-plugin": "4.6.0"
   }
 }
